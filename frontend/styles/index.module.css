@@ -1,0 +1,141 @@
+.header{
+    width: 65%;
+    margin: 0 auto;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: #fff;
+
+    display: grid;
+    gap: 1rem;
+}
+
+.header__box{
+    background-color: #0e0e0f;
+    padding: 1rem;
+    border-radius: .4rem;
+}
+
+.header__box{
+text-align: center;
+font-weight: 700;
+}
+
+
+
+/* ///////////////////////////////////// */
+
+
+
+
+.container{
+    width: 65%;
+    margin: 0 auto;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    color: #fff;
+    line-height: 1.2;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+.container__box{
+    background-color: #080808;
+    padding: .5rem 1rem;
+    font-size: 12px;
+    border-radius: .4rem;
+   
+}
+
+.container__box a{
+    color: #e0d4e1;
+    font-weight: 700;
+}
+
+.container__box h3{
+    color: #fff;
+    border-bottom: 1px solid #f0edf0;
+    padding: .5rem;
+}
+
+.container__block{
+    height: 80vh;
+    overflow: scroll;
+}
+
+.container__block::-webkit-scrollbar{
+    display: none;
+}
+
+.oneBlock{
+    display: flex;
+    gap: 2rem;
+}
+
+.bk{
+    background-color: #f0ecf0;
+    width: 1.5rem;
+    color: #0a0a0a;
+    font-weight: bolder;
+    padding: .2rem;
+    border-radius: .2rem;
+   
+}
+
+.reward{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+    justify-content: space-between;
+}
+
+.reward span{
+    color: #ebe3ec;
+    font-weight: bolder;
+   
+}
+
+.miner{
+    line-height: 1;
+}
+
+
+.link a{
+    margin-left: .9rem;
+}
+
+
+/* ////////////////////////////////////////////// */
+.accountAddress{
+    background-color: #090909;
+    padding: .5rem;
+    color: #fff;
+    border-radius: .5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.accountAddress input{
+    background-color: transparent;
+    border: 0;
+    outline: none;
+    padding: .5rem;
+    color: #fff;
+    width: 100%;
+}
+
+/* ////////////////////////// */
+
+@media screen and (max-width: 45em){
+    .header{
+        width: 95%;
+    }
+    .container{
+        grid-template-columns: 1fr;
+        width: 95%;
+        overflow: hidden;
+    }
+}
+

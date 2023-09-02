@@ -1,0 +1,90 @@
+<!-- <!DOCTYPE html>
+<html>
+  <head>
+    <title>Blockchain Explorer</title>
+  </head>
+  <body>
+    <h1>Blockchain Explorer</h1>
+    <form>
+      <label for="input">Enter Transaction Hash or Wallet Address:</label>
+      <input type="text" id="input" name="input">
+      <br>
+      <input type="button" value="Search" onclick="searchBlockchain()">
+    </form>
+    <br>
+    <div id="result"></div>
+    <script>
+      function searchBlockchain() {
+        var input = document.getElementById("input").value;
+        var url = "https://btcscan.org/api/blocks/tip/hash/" + input; // replace with your blockchain explorer API endpoint
+        fetch(url)
+          .then(response => response.json())
+          .then(data => {
+            var result = document.getElementById("result");
+            result.innerHTML = JSON.stringify(data, null, 2);
+          })
+          .catch(error => console.error(error));
+      }
+    </script>
+  </body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ethereum Data for Address</title>
+</head>
+<body>
+    <h1>Ethereum Data for Address</h1>
+    <form>
+        <label for="address">Enter an Ethereum Address:</label>
+        <input type="text" id="address" name="address" required>
+        <button type="button" onclick="getEthData()">Get Data</button>
+    </form>
+    <br>
+    <div id="output"></div>
+    <script>
+        function getEthData() {
+            const apiKey = 'HVHTPWF3UJ8P5ZEDNUZYMT28ZZNEEURRD4'; // Replace with your Etherscan API key
+            const address = document.getElementById('address').value;
+            const balanceUrl = `https://api.etherscan.io/api?module=account&action=balance&address=${address}&tag=latest&apikey=${apiKey}`;
+            const txlistUrl = `https://api.etherscan.io/api?module=account&action=txlist&address=${address}&sort=desc&apikey=${apiKey}`;
+            fetch(balanceUrl)
+                .then(response => response.json())
+                .then(data => {
+                    const balance = data.result / 10**18; // Convert from wei to ETH
+                    const output = document.getElementById('output');
+                    output.innerHTML = `
+                        <h2>Balance</h2>
+                        <p>${balance} ETH</p>
+                    `;
+                })
+                .catch(error => console.error(error));
+            fetch(txlistUrl)
+                .then(response => response.json())
+                .then(data => {
+                    const txs = data.result.slice(0, 5);
+                    const output = document.getElementById('output');
+                    let txHtml = '<h2>Latest Transactions</h2>';
+                    txHtml += '<ul>';
+                    for (let tx of txs) {
+                        txHtml += `<li>${tx.hash} - ${tx.value / 10**18} ETH</li>`;
+                    }
+                    txHtml += '</ul>';
+                    output.innerHTML += txHtml;
+                    const blockUrl = `https://api.etherscan.io/api?module=block&action=getblocknobytime&timestamp=${data.result[0].timeStamp}&closest=before&apikey=${apiKey}`;
+                    return fetch(blockUrl);
+                })
+                .then(response => response.json())
+                .then(data => {
+                    const output = document.getElementById('output');
+                    output.innerHTML += `
+                        <h2>Block Time</h2>
+                        <p>${new Date(data.result.timestamp * 1000).toLocaleString()}</p>
+                    `;
+                })
+                .catch(error => console.error(error));
+        }
+    </script>
+</body>
+</html>

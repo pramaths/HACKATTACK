@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Etherscan API Token Balances Example</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      // Etherscan API endpoint
+      var apiEndpoint = "https://api.etherscan.io/api";
+      
+      // Your API key
+      var apiKey = "HVHTPWF3UJ8P5ZEDNUZYMT28ZZNEEURRD4";
+      
+      // Ethereum address to retrieve token balances for
+      var address = "0xBE0eB53F46cd790Cd13851d5EFf43D12404d33E8";
+      
+      // ERC20 Token contract address to retrieve balances for
+      var contractAddress = "0xBBbbCA6A901c926F240b89EacB641d8Aec7AEafD";
+      
+      // Etherscan API request URL
+      var url = apiEndpoint + "?module=account&action=tokenbalance&contractaddress=" + contractAddress + "&address=" + address + "&tag=latest&apikey=" + apiKey;
+      
+      // Make the API request
+      $.getJSON(url, function(result) {
+        // Check if API request was successful
+        if (result.status == "1") {
+          // Display token balance
+          $("#token-balance").text(result.result);
+        } else {
+          // Display error message
+          $("#token-balance").text("Error: " + result.message);
+        }
+      });
+    });
+  </script>
+</head>
+<body>
+  <h1>Etherscan API Token Balances Example</h1>
+  <p>Token balance for address <code>0x1234567890abcdef1234567890abcdef12345678</code>:</p>
+  <p id="token-balance">Loading...</p>
+</body>
+</html>

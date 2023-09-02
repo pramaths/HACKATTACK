@@ -1,0 +1,312 @@
+.block{
+    width: 80%;
+    margin: 0 auto;
+    margin-block: 2rem ;
+}
+
+.box__header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.box__header h3{
+    color: #fff;
+    background-color: #0f0f10;
+    padding: 1rem;
+    border-radius: .5rem;
+}
+
+.box__header p{
+    background-color: #171718;
+    color: #fff;
+    padding: 1rem;
+    border-radius: .5rem;
+    font-weight: 700;
+}
+
+.blockBtn{
+    background-color: #0c0c0c;
+    display: flex;
+    gap: 1.5rem;
+    justify-content: start;
+    margin-left: -.5rem;
+    border-bottom: 1px solid  #fdfdfd;
+    padding-bottom: .5rem;
+   
+}
+
+.blockBtn button{
+    background: transparent;
+    border: 0;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.blockTable{
+    background-color: #0d0d0d;
+    margin-block: 2rem;
+    color: #fff;
+    padding: 1rem 2rem;
+    border-radius: .5rem;
+}
+
+.dataRow{
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    align-items: center;
+    font-size: 12px;
+    overflow: hidden;
+}
+
+.color{
+    color: #d8d8d8;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 35em){
+    .block{
+        width: 95%;
+    }
+    .box__header p {
+       display: none;
+    }
+    .dataRow{
+        grid-template-columns: 2fr 4fr;
+    }
+   
+
+}.navbar{
+    width: 85%;
+    margin: 0 auto;
+    background-color: #0a0a0a;
+    color: #d6c4c4;
+    margin-block: 1rem;
+    padding: 1rem;
+    border-radius: .5rem;
+}
+
+.navbar__container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: 1rem;
+
+}
+
+.left h1{
+    line-height: 0%;
+    color: #fff;
+    transform: skewX(-25deg);
+    text-transform: uppercase;
+    background-color: #9a02ac;
+    position: relative;
+    cursor: pointer;
+    transition: all .4s ease-in-out;
+}
+
+.left h1:hover{
+    color: #9a02ac;
+}
+
+.mobile{
+    display: none;
+}
+
+.right {
+    position: relative;
+}
+
+.right button{
+    color: #9a02ac;
+    background: transparent;
+    padding: .5rem;
+    border: 1px solid #9a02ac;
+    border-radius: .5rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.connected{
+    position: relative;
+}
+
+.userModal{
+    position: absolute;
+    top: 4rem;
+    right: 0;
+    padding: 1rem;
+    border-radius: .5rem;
+    background-color: #1F1A36;
+    width: 15rem;
+}
+
+.user_box{
+    text-align: center;
+    position: relative;
+}
+
+.closeBtn{
+    position: absolute;
+   right: 0;
+    cursor: pointer;
+    color: #fff;
+    font-size: 1.5rem;
+    transition: all .2s ease-in-out;
+
+}
+
+.closeBtn:hover{
+    transform: rotate(-45deg);
+}
+
+
+/* ////////////////////////////////////// */
+/* //PRICE */
+
+.price{
+    width: 85%;
+    margin: 0 auto;
+    color: #9a02ac;
+    margin-block: 1rem;
+    padding: 1rem;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    overflow: hidden;
+}
+
+.price__box{
+    background-color: #1F1A36;
+    border-radius: .5rem;
+    display: flex;
+    padding-left: 1rem;
+    line-height: .2;
+    align-items: center;
+    gap: 2rem;
+}
+
+.etherPrice{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.price__box h4{
+    font-size: 1.2rem;
+    color: #fff;
+}
+
+.price__box p {
+    line-height: .5;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.supplyEther{
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+.supplyIcon{
+    font-size: 3rem;
+}
+
+
+.logoWidth{
+    width: 80%;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    border-left: 1px solid #9a02ac;
+    text-align: center;
+   
+    padding-left: 2.5rem;
+}
+
+.logoWidth p{
+    line-height: 1.3;
+    margin-right: 1rem;
+    font-size: 1.1rem;
+    color: #fff;
+    background-color: #dad4db;
+    padding: 1rem 0;
+    border-radius: .2rem;
+}
+
+
+/* /////////////////////////////////// */
+
+@media screen and (max-width: 45em){
+    .navbar{
+    width: 100%;
+    margin-block: 0rem;
+    padding: 0rem;
+    border-radius: 0rem;
+    }
+   .navbar__container{
+    padding: 1rem 2rem;
+   }
+
+   .desktop{
+    display: none;
+   }
+
+   .mobile{
+    display: block;
+        line-height: 0%;
+        color: #fff;
+        transform: skewX(-25deg);
+        text-transform: uppercase;
+        background-color: #9a02ac;
+        position: relative;
+        cursor: pointer;
+   }
+    .mobile:hover{
+        color: #9a02ac;
+        }
+
+   .price{
+    grid-template-columns: 1fr;
+    padding: 0;
+    width: 95%;
+   }
+
+   .price__box{
+    display: grid;
+   }
+
+   .etherPrice{
+    padding: .5rem;
+   }
+
+   .logoWidth{
+    width: 100%;
+    border-left: 0;
+    padding-left: 0;
+   }
+
+   .logoWidth p{
+    font-size: .8rem;
+   }
+
+   .tokenBox__logo{
+    text-align: center;
+    margin-bottom: -2.6rem;
+   }
+
+   .right button{
+    width: 100%;
+   }
+    .userModal{
+        right: -6rem;
+       
+    }
+
+    .userModal{
+        right: .5rem;
+    }
+   
+}
